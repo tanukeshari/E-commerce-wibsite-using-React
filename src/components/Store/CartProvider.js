@@ -35,6 +35,14 @@ const cartReducer = (state, action) => {
             products: update,
             totalAmount: updatedAmount
         }
+    }else if (action.type === "REMOVE"){
+        const updatedAmount = state.totalAmount - action.value.price * action.value.quantity;
+      const updatedProducts = state.products.filter(product => product.id !== action.value.id)
+
+      return {
+                   products: updatedProducts,
+                    totalAmount: updatedAmount
+               }
     }
 
     
@@ -56,11 +64,11 @@ const CartProvider = (props) => {
 
     
 
-    const removeProductHandler = (id) => { 
-        // dispatchFN({
-        //     type:"REMOVE",
-        //     value:id
-        // })
+    const removeProductHandler = (product) => { 
+        dispatchFN({
+            type:"REMOVE",
+            value:product
+        })
     }
 
 
@@ -76,3 +84,5 @@ const CartProvider = (props) => {
 }
 
 export default CartProvider;
+
+
