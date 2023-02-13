@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../Footer/Footer';
 import Grid from '../Grid/Grid';
 import Header from '../Header/Header';
 import Section from '../Section/Section';
@@ -10,11 +11,11 @@ const Store = () => {
 
    <CartProvider>
 
-
        <Header></Header>
          <Grid></Grid>
          <Section/>
          <Products></Products>
+         <Footer/>
    </CartProvider>
   
     
